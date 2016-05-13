@@ -1,0 +1,31 @@
+【実行時の使用メモリサイズ指定】
+-Xms 128Mbyte
+-Xmx 128Mbyte
+
+【OOME時のヒープダンプ出力】
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:HeapDumpPath=${path_heapdumppath}/<ホスト名>_<機能ID>_`date +%Y%m%d%H%M% S`.hprof
+
+※　${path_heapdumppath}は動作するサーバの環境変数になり、
+　　「path_heapdumppath=/nfs_work1/heapdump」が設定されます。
+
+※　<機能ID>は「0C2」を指定してください。
+　　${funcID}の変数を作成して、
+　　今後の改修で、機能IDを変更する場合があったとしても
+　　実行コマンド本体を修正しないですむようにしてください。
+
+※　<ホスト名>は実行サーバのコンピュータ名になります。
+　　環境変数から取得するようにしてください。
+
+【CLASSPATHの変更】
+変更前：/opt/optos7/gyomu/app
+変更後：/opt/optos7/gyomu/lib
+
+【CLASSPATHの追加】
+以下３本のjarをCLASSPATHに追加してください
+・/opt/optos7/gyomu/lib/log4j-api-2.3.jar
+・/opt/optos7/gyomu/lib/log4j-core-2.3.jar
+・/opt/optos7/gyomu/lib/log4j-web-2.3.jar
+
+【期限】
+4/28 19:00
